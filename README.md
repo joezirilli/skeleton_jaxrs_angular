@@ -1,5 +1,5 @@
-# skeleton_jaxrs_angular
-Basic setup for a JAX-RS + AngularJS web application
+# skeleton_jaxrs_angular (+ Mongo)
+Basic setup for a JAX-RS + AngularJS + MongoDB web application
 
 ## Pre-requisites
 
@@ -8,11 +8,14 @@ Basic setup for a JAX-RS + AngularJS web application
 * Bower `sudo npm install -g bower`
 * Grunt `sudo npm install -g grunt-cli`
 
-**Server**
+**App Server**
 * Java 8
 * Tomcat 7
 * Maven 3
 * Eclipse
+
+**DB Server**
+* [MongoDB](http://docs.mongodb.org/manual/installation/)
 
 ## Setup
 
