@@ -35,3 +35,4 @@ Basic setup for a JAX-RS + AngularJS web application
 * In the project explorer, run the maven build by right clicking and select Maven > Update Project
 * Right click on the server and select Publish
 * Run the server and go to [http:localhost:8080/skeleton](http:localhost:8080/skeleton)
+  * Note: After starting tomcat, you can also run `grunt serve` from the client directory to spin up a server on port 9000 with live-reload and unminified resources
