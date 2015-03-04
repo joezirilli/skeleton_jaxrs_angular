@@ -32,8 +32,8 @@ public class TeamsResourceTest {
 	@Test
 	public void testGetTeamsReturnsAllTeams() throws Exception {
 		List<Team> teams = Arrays.asList(
-				new Team("Yankees", "New York", 27),
-				new Team("Red Sox", "Boston", 8));
+				new Team("Yankees", 27),
+				new Team("Red Sox", 8));
 		when(teamsDao.getAllTeams()).thenReturn(teams);
 		
 		assertSame(teams, teamsResource.getTeams());
@@ -41,8 +41,8 @@ public class TeamsResourceTest {
 
 	@Test
 	public void testGetTeamByIdReturnsTheTeamWithTheMatchingId() throws Exception {
-		Team yankees = new Team("Yankees", "New York", 27);
-		Team redsox = new Team("Red Sox", "Boston", 8);
+		Team yankees = new Team("Yankees", 27);
+		Team redsox = new Team("Red Sox", 8);
 		yankees.set_id("y123");
 		yankees.set_id("rs123");
 		when(teamsDao.getTeamById("y123")).thenReturn(yankees);
@@ -53,8 +53,8 @@ public class TeamsResourceTest {
 	
 	@Test
 	public void testGetTeamByIdThrows404ErrorIfNoTeamHasId() throws Exception {
-		Team yankees = new Team("Yankees", "New York", 27);
-		Team redsox = new Team("Red Sox", "Boston", 8);
+		Team yankees = new Team("Yankees", 27);
+		Team redsox = new Team("Red Sox", 8);
 		yankees.set_id("y123");
 		yankees.set_id("rs123");
 		when(teamsDao.getTeamById("y123")).thenReturn(yankees);
@@ -70,7 +70,7 @@ public class TeamsResourceTest {
 	
 	@Test
 	public void testAddTeamAddsTheTeamToTheListOfTeams() throws Exception {
-		Team team = new Team("Cardinals", "St. Louis", 11);
+		Team team = new Team("Cardinals", 11);
 		teamsResource.addTeam(team);
 		
 		verify(teamsDao).addTeam(team);

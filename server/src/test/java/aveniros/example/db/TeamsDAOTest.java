@@ -23,8 +23,8 @@ public class TeamsDAOTest extends BaseDBTest {
 	public void testAddTeamAddsTheTeamToTheCollection() throws Exception {
 		assertEquals(0, dao.getAllTeams().size());
 		
-		dao.addTeam(new Team("Yankees", "New York", 27));
-		dao.addTeam(new Team("Red Sox", "Boston", 8));
+		dao.addTeam(new Team("Yankees", 27));
+		dao.addTeam(new Team("Red Sox", 8));
 		
 		Collection<Team> teams = dao.getAllTeams();
 		Iterator<Team> teamsIt = teams.iterator();
@@ -36,8 +36,8 @@ public class TeamsDAOTest extends BaseDBTest {
 	
 	@Test
 	public void testGetTeamByIdReturnsTheTeamWithTheMatchingId() throws Exception {
-		Team yankees = new Team("Yankees", "New York", 27);
-		Team redsox = new Team("Red Sox", "Boston", 8);
+		Team yankees = new Team("Yankees", 27);
+		Team redsox = new Team("Red Sox", 8);
 		dao.addTeam(yankees);
 		dao.addTeam(redsox);
 

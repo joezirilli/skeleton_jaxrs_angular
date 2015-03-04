@@ -7,15 +7,13 @@ public class Team {
 	@ObjectId
 	private String _id;
 	private String name;
-	private String city;
 	private int championships;
 
 	public Team() {
 	}
 
-	public Team(String name, String city, int championships) {
+	public Team(String name, int championships) {
 		this.name = name;
-		this.city = city;
 		this.championships = championships;
 	}
 
@@ -25,14 +23,6 @@ public class Team {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
 	}
 
 	public int getChampionships() {

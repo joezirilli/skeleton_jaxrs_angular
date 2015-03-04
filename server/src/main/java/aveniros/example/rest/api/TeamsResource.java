@@ -46,7 +46,7 @@ public class TeamsResource {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public String addTeam(Team team) {
 		return dao.addTeam(team);
 	}
