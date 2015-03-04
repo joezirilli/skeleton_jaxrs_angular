@@ -7,18 +7,18 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/teams.html',
+        controller: 'TeamsCtrl',
+        controllerAs: 'teamsView'
       })
       .otherwise({
         redirectTo: '/'
       });
   })
 
-  .controller('MainCtrl', function ($http) {
-    var main = this;
-    $http.get('rest/stuff').then(function (response) {
-      main.stuff = response.data;
+  .controller('TeamsCtrl', function ($http) {
+    var teamsView = this;
+    $http.get('rest/teams').then(function (response) {
+      teamsView.teams = response.data;
     });
   });

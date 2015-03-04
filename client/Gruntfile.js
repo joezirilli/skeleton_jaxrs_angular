@@ -80,7 +80,7 @@ module.exports = function (grunt) {
             host: 'localhost',
             port: 8080,
             rewrite: {
-              '^/rest': '/RESTfulExample/rest'
+              '^/rest': '/skeleton/rest'
             }
           }
         ]
@@ -418,9 +418,6 @@ module.exports = function (grunt) {
       server: [
         'compass:server'
       ],
-      test: [
-        'compass'
-      ],
       dist: [
         'compass:dist',
         'imagemin',
@@ -454,15 +451,9 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
-
   grunt.registerTask('test', [
     'clean:server',
-    'wiredep',
-    'concurrent:test',
+    'wiredep:test',
     'autoprefixer',
     'connect:test',
     'karma'

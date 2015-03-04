@@ -1,12 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mkyong.common</groupId>
-	<artifactId>RESTfulExample</artifactId>
+	<groupId>aveniros</groupId>
+	<artifactId>skeleton</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>RESTfulExample Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>Skeleton App</name>
 
 	<repositories>
 		<repository>
@@ -23,38 +22,53 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- RESTEasy -->
 		<dependency>
-	      <groupId>org.jboss.resteasy</groupId>
-	      <artifactId>resteasy-jaxrs</artifactId>
-	      <version>3.0.10.Final</version>
-	   </dependency>
-	   <dependency>
-	      <groupId>org.jboss.resteasy</groupId>
-	      <artifactId>resteasy-client</artifactId>
-	      <version>3.0.10.Final</version>
-	   </dependency>
-	
-	   <!-- Jackson serialization -->
-	   <dependency>
-	      <groupId>org.jboss.resteasy</groupId>
-	      <artifactId>resteasy-jackson-provider</artifactId>
-	      <version>3.0.10.Final</version>
-	   </dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.10.Final</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>3.0.10.Final</version>
+		</dependency>
 	</dependencies>
 
+
 	<build>
-		<finalName>RESTfulExample</finalName>
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<webResources>
+						<resource>
+							<directory>../client/dist</directory>
+						</resource>
+						<resource>
+							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+							<filtering>true</filtering>
+							<targetPath>WEB-INF</targetPath>
+							<includes>
+								<include>web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>skeleton</finalName>
 	</build>
 
 </project>
