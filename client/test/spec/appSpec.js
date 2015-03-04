@@ -1,6 +1,6 @@
 'use strict';
 
-describe('MainCtrl', function () {
+describe('TeamsCtrl', function () {
   var $httpBackend, $controller;
 
   beforeEach(module('clientApp'));
@@ -12,13 +12,13 @@ describe('MainCtrl', function () {
 
   describe('when the controller is initiallized', function () {
     it('should request the teams and set them on the controller', function () {
-      var main;
+      var teamsView;
       $httpBackend.expectGET('rest/teams').respond(200, ['Yankees', 'Red Sox', 'Brewers']);
-      main = $controller('MainCtrl');
+      teamsView = $controller('TeamsCtrl');
 
-      expect(main.teams).toBeUndefined();
+      expect(teamsView.teams).toBeUndefined();
       $httpBackend.flush();
-      expect(main.teams).toEqual(['Yankees', 'Red Sox', 'Brewers']);
+      expect(teamsView.teams).toEqual(['Yankees', 'Red Sox', 'Brewers']);
     });
   });
 });
