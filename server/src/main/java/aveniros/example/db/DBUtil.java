@@ -9,6 +9,8 @@ import com.mongodb.MongoClient;
 
 public class DBUtil {
 	private static DBUtil instance = null;
+	
+	private static String dbName = "example_db";
 
 	private DB database = null;
 	private MongoClient client = null;
@@ -20,6 +22,10 @@ public class DBUtil {
 		}
 		return instance;
 	}
+	
+	public static void setDBName(String name) {
+		dbName = name;
+	}
 
 	protected DBUtil() {
 		try {
@@ -27,7 +33,7 @@ public class DBUtil {
 		} catch (UnknownHostException ex) {
 			// Oh no!
 		}
-		database = client.getDB("example_db");
+		database = client.getDB(dbName);
 		jongo = new Jongo(database);
 	}
 

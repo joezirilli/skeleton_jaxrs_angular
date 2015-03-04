@@ -1,27 +1,22 @@
 package aveniros.example.pojo;
 
-import java.util.UUID;
+import org.jongo.marshall.jackson.oid.ObjectId;
 
 public class Team {
 
-	private String id;
+	@ObjectId
+	private String _id;
 	private String name;
 	private String city;
 	private int championships;
 
 	public Team() {
-		assignRandomId();
 	}
 
 	public Team(String name, String city, int championships) {
-		this();
 		this.name = name;
 		this.city = city;
 		this.championships = championships;
-	}
-	
-	public void assignRandomId() {
-		setId(UUID.randomUUID().toString());
 	}
 
 	public String getName() {
@@ -48,11 +43,11 @@ public class Team {
 		this.championships = championships;
 	}
 
-	public String getId() {
-		return id;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void set_id(String id) {
+		this._id = id;
 	}
 }
