@@ -1,6 +1,6 @@
 package aveniros.example.rest.api;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.ws.rs.Consumes;
@@ -17,16 +17,18 @@ import aveniros.example.pojo.Team;
 @Path("/teams")
 public class TeamsResource {
 
-	public static Collection<Team> teams = Arrays.asList(
-			new Team("Yankees", "New York", 27),
-			new Team("Red Sox", "Boston", 8));
+	public static Collection<Team> teams = new ArrayList<>();
+	static {
+		teams.add(new Team("Yankees", "New York", 27));
+		teams.add(new Team("Red Sox", "Boston", 8));
+	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<Team> getTeams() {
 		return teams;
 	}
-	
+
 	@Path("/{id}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -38,7 +40,7 @@ public class TeamsResource {
 		}
 		throw new WebApplicationException(404);
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
