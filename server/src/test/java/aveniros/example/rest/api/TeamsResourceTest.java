@@ -41,7 +41,7 @@ public class TeamsResourceTest {
 	public void testAddTeamAddsTheTeamToTheListOfTeams() throws Exception {
 		assertEquals(2, teamsResource.getTeams().size());
 		
-		teamsResource.addTeam(new Team("Cardinals", "St. Louis", 11));
+		teamsResource.addTeam(new Team("Cardinals", 11));
 		
 		Collection<Team> teams = teamsResource.getTeams();
 		Iterator<Team> teamsIt = teams.iterator();

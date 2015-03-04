@@ -19,8 +19,8 @@ public class TeamsResource {
 
 	public static Collection<Team> teams = new ArrayList<>();
 	static {
-		teams.add(new Team("Yankees", "New York", 27));
-		teams.add(new Team("Red Sox", "Boston", 8));
+		teams.add(new Team("Yankees", 27));
+		teams.add(new Team("Red Sox", 8));
 	}
 
 	@GET
@@ -44,9 +44,9 @@ public class TeamsResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String addTeam(Team team) {
+	public Team addTeam(Team team) {
 		team.assignRandomId();
 		teams.add(team);
-		return team.getId();
+		return team;
 	}
 }
