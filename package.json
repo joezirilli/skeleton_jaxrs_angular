@@ -1,0 +1,10 @@
+{
+  "name": "skeleton_jaxrs_angular",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-run": "^0.3.0",
+    "load-grunt-tasks": "^3.1.0",
+    "time-grunt": "^1.1.0"
+  }
+}
