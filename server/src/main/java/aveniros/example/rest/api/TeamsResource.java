@@ -16,13 +16,13 @@ import aveniros.example.pojo.Team;
 
 @Path("/teams")
 public class TeamsResource {
-	
+
 	private TeamsDAO dao;
 
 	public TeamsResource() {
 		this(new TeamsDAO());
 	}
-	
+
 	protected TeamsResource(TeamsDAO dao) {
 		this.dao = dao;
 	}
