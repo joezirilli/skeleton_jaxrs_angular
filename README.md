@@ -34,8 +34,9 @@ Basic setup for a JAX-RS + AngularJS + MongoDB web application
 * Open the Servers view in Eclipse (Window > Show View)
 * Click the link to create a new server
 * Under Apache, select Tomcat 7 and click Next
+* Set the Tomcat installation directory to the root of your Tomcat and click Next
 * Add the skeleton resource and click Finish
 * In the project explorer, run the maven build by right clicking and select Maven > Update Project
 * Right click on the server and select Publish
 * Run the server and go to [http:localhost:8080/skeleton](http:localhost:8080/skeleton)
-  * Note: After starting tomcat, you can also run `grunt serve` from the client directory to spin up a server on port 9000 with live-reload and unminified resources
+  * Note: After starting tomcat, you can also run `grunt serve` from the client directory to spin up a server on port 9000 with live-reload and unminified source code
